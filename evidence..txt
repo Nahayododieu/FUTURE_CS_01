@@ -1,0 +1,70 @@
+ 1) IDOR (Insecure Direct Object Reference)
+
+FINDING #1: I could access user #2's data just by changing the number in the URL
+No password or permission was asked
+This is an IDOR vulnerability
+
+{
+    "id": 1,
+    "name": "Leanne Graham",
+    "username": "Bret",
+    "email": "Sincere@april.biz",
+    "address": {
+        "street": "Kulas Light",
+        "suite": "Apt. 556",
+        "city": "Gwenborough",
+        "zipcode": "92998-3874",
+        "geo": {
+            "lat": "-37.3159",
+            "lng": "81.1496"
+        }
+    },
+    "phone": "1-770-736-8031 x56442",
+    "website": "hildegard.org",
+    "company": {
+        "name": "Romaguera-Crona",
+        "catchPhrase": "Multi-layered client-server neural-net",
+        "bs": "harness real-time e-markets"
+    }
+}
+
+use 2
+{
+    "id": 2,
+    "name": "Ervin Howell",
+    "username": "Antonette",
+    "email": "Shanna@melissa.tv",
+    "address": {
+        "street": "Victor Plains",
+        "suite": "Suite 879",
+        "city": "Wisokyburgh",
+        "zipcode": "90566-7771",
+        "geo": {
+            "lat": "-43.9509",
+            "lng": "-34.4618"
+        }
+    },
+    "phone": "010-692-6593 x09125",
+    "website": "anastasia.net",
+    "company": {
+        "name": "Deckow-Crist",
+        "catchPhrase": "Proactive didactic contingency",
+        "bs": "synergize scalable supply-chains"
+    }
+}
+
+2)No Rate Limiting 
+
+FINDING #2: I sent 15 requests in 10 seconds and all worked
+The API has no rate limiting
+Someone could send thousands of requests to attack the system
+
+
+3)Trying to POST (create data) without a key
+
+
+FINDING #3: I could create new data without providing any API key or token
+The API accepted my POST request without checking who I am
+No authentication is required to modify data
+
+
